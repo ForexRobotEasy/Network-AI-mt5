@@ -1,0 +1,119 @@
+
+//+------------------------------------------------------------------+
+//|                                      Network AI mt5              |
+//|               Developed by Forex Robot Easy Team                 |
+//|                   Visit us at forexroboteasy.com                 |
+//+------------------------------------------------------------------+
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <WebRequest\WebRequest.mqh>
+
+// Global variables
+CTrade trade; // Trade object for executing trading operations
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Enable WebRequest
+    WebRequest::SetAllowed(true);
+
+    // Set WorkMode to mode_Real
+    if (!trade.SetWorkMode(WORK_MODE_REAL))
+    {
+        Print('Failed to set WorkMode to mode_Real');
+        return INIT_FAILED;
+    }
+
+    // Add any additional initialization code here
+
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add any cleanup code here
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check for news events and analyze macroeconomic data
+    if (IsNewsEvent())
+    {
+        AnalyzeData();
+    }
+
+    // Make trading decisions based on the analyzed data
+    if (ShouldOpenPosition())
+    {
+        OpenPosition();
+    }
+
+    // Exit trading positions based on news events
+    if (ShouldClosePosition())
+    {
+        ClosePosition();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Check for news events                                             |
+//+------------------------------------------------------------------+
+bool IsNewsEvent()
+{
+    // Implement logic to check for news events here
+
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Analyze macroeconomic data                                        |
+//+------------------------------------------------------------------+
+void AnalyzeData()
+{
+    // Implement logic to analyze macroeconomic data here
+}
+
+//+------------------------------------------------------------------+
+//| Check if a position should be opened                              |
+//+------------------------------------------------------------------+
+bool ShouldOpenPosition()
+{
+    // Implement logic to determine if a position should be opened here
+
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Open a trading position                                           |
+//+------------------------------------------------------------------+
+void OpenPosition()
+{
+    // Implement logic to open a trading position here
+}
+
+//+------------------------------------------------------------------+
+//| Check if a position should be closed                              |
+//+------------------------------------------------------------------+
+bool ShouldClosePosition()
+{
+    // Implement logic to determine if a position should be closed here
+
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Close a trading position                                          |
+//+------------------------------------------------------------------+
+void ClosePosition()
+{
+    // Implement logic to close a trading position here
+}
